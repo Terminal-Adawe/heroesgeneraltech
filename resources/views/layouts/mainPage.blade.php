@@ -4,7 +4,7 @@
 </head>
 
 @section('content')
-	@include('carousel')
+	@include('headerImage')
 	@include('whatWeDo')
 	@include('projects')
 	@include('partners')

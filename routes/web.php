@@ -36,3 +36,8 @@ Route::get('/contact', function () {
 Route::get('/customer', function () {
     return view('layouts.customer_page');
 })->name('customer');
+
+
+Route::get('/services', function () {
+    return view('layouts.customer_page');
+})->name('services');
