@@ -38,6 +38,8 @@ class HomeController extends Controller
     {
         $data['services_f'] = Service::where('active',1)->take(3)->get();
 
+        $data['services'] = Service::where('active',1)->get();
+
         $data['count'] = DB::table('users')
                             ->where('is_staff','!=','1')
                             ->select(DB::raw('COUNT(users.id) as number_of_users'))
