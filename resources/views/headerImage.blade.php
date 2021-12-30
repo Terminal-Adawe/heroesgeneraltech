@@ -1,7 +1,4 @@
 <section class="header1 cid-sRqhxklxWs mbr-fullscreen" id="header1-5">
-
-    
-
     <div class="container">
         <h1 class="mbr-section-title mbr-fonts-style align-right mbr-bold mbr-white mbr-pb-2 display-1">
             Heroes General Technology

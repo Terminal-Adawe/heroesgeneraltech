@@ -4,19 +4,19 @@
       <div class="u-align-left u-container-style u-group u-white u-group-1">
         <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-xl u-valign-top-sm u-valign-top-xs u-container-layout-1">
           <div class="u-palette-2-base u-shape u-shape-circle u-shape-2"></div>
-          <h1 class="u-custom-font u-font-oswald u-text u-text-1"> Company</h1>
+          <h1 class="u-custom-font u-font-oswald u-text u-text-1"> Heroes General Tech</h1>
           <h3 class="u-text u-text-2">High-quality Services</h3>
-          <p class="u-text u-text-3">Image from <a href="https://www.freepik.com/photos/people" class="u-active-none u-border-1 u-border-black u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-btn-1">Freepik</a>
-          </p>
+          <!-- <p class="u-text u-text-3">Image from <a href="https://www.freepik.com/photos/people" class="u-active-none u-border-1 u-border-black u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-btn-1">Freepik</a>
+          </p> -->
         </div>
       </div>
       <div class="u-align-left u-container-style u-group u-palette-5-dark-3 u-group-2">
         <div class="u-container-layout u-valign-middle u-container-layout-2">
           <h3 class="u-text u-text-4">call us</h3>
-          <p class="u-text u-text-5">1 (234) 567-891<br>1 (234) 987-654
+          <p class="u-text u-text-5">+233246082094<br>+233263788420
           </p>
           <h3 class="u-text u-text-6">location</h3>
-          <p class="u-text u-text-7">121 Rock Sreet, 21 Avenue,<br>New York, NY 92103-9000
+          <p class="u-text u-text-7">Tamale,<br>Tamale
           </p>
           <div class="u-social-icons u-spacing-10 u-social-icons-1">
             <a class="u-social-url" target="_blank" href=""><span class="u-icon u-icon-circle u-social-facebook u-social-icon u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-e43d"></use></svg><svg x="0px" y="0px" viewBox="0 0 112 112" id="svg-e43d" class="u-svg-content"><path d="M56.1,0C25.1,0,0,25.1,0,56.1c0,31,25.1,56.1,56.1,56.1c31,0,56.1-25.1,56.1-56.1C112.2,25.1,87.1,0,56.1,0z M71.6,34.3h-8.2c-1.3,0-3.2,0.7-3.2,3.5v7.6h11.3l-1.3,12.9h-10V95H45V58.3h-7.2V45.4H45v-8.3c0-6,2.8-15.3,15.3-15.3l11.2,0V34.3z "></path></svg></span>

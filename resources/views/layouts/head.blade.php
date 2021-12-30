@@ -41,7 +41,11 @@ div,span,h1,h2,h3,h4,h5,h6,p,blockquote,a,ol,ul,li,figcaption,textarea,input{fon
     
     
     
-    
+    <!-- <link rel="stylesheet" type="text/css" href="{{mix('/css/app.css')}}"> -->
+<script src="https://unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/moment@2.22.1/min/moment.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
@@ -67,8 +71,10 @@ div,span,h1,h2,h3,h4,h5,h6,p,blockquote,a,ol,ul,li,figcaption,textarea,input{fon
                   <div data-position="" class="u-position"><!--block-->
                     <div class="u-block">
                       <div class="u-block-container u-clearfix"><!--block_header-->
-                        <h5 class="u-block-header u-text"><!--block_header_content--> Block header <!--/block_header_content--></h5><!--/block_header--><!--block_content-->
-                        <div class="u-block-content u-text"><!--block_content_content--> Block content. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices. <!--/block_content_content--></div><!--/block_content-->
+                        <h5 class="u-block-header u-text"><!--block_header_content--> About Us <!--/block_header_content--></h5><!--/block_header--><!--block_content-->
+                        <div class="u-block-content u-text"><!--block_content_content--> 
+                          Heroes General Tech has been established for more than 7 years and has been providing security and safety solutions to families and businessses particularly into a broad range of industries covering household and industrial
+                         <!--/block_content_content--></div><!--/block_content-->
                       </div>
                     </div><!--/block-->
                   </div><!--/position-->
@@ -79,8 +85,14 @@ div,span,h1,h2,h3,h4,h5,h6,p,blockquote,a,ol,ul,li,figcaption,textarea,input{fon
                   <div data-position="" class="u-position"><!--block-->
                     <div class="u-block">
                       <div class="u-block-container u-clearfix"><!--block_header-->
-                        <h5 class="u-block-header u-text"><!--block_header_content--> Block header <!--/block_header_content--></h5><!--/block_header--><!--block_content-->
-                        <div class="u-block-content u-text"><!--block_content_content--> Block content. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices. <!--/block_content_content--></div><!--/block_content-->
+                        <h5 class="u-block-header u-text"><!--block_header_content--> Our Services <!--/block_header_content--></h5><!--/block_header--><!--block_content-->
+                        <div class="u-block-content u-text"><!--block_content_content--> 
+                          <ul>
+                          @foreach($data['services_f'] as $service)
+                            <li><a href="{{ route('view-service',['service_id'=>$service->service_id]) }}">{{ $service->service_name }}</a></li>
+                          @endforeach
+                          </ul>
+                         <!--/block_content_content--></div><!--/block_content-->
                       </div>
                     </div><!--/block-->
                   </div><!--/position-->
@@ -91,8 +103,15 @@ div,span,h1,h2,h3,h4,h5,h6,p,blockquote,a,ol,ul,li,figcaption,textarea,input{fon
                   <div data-position="" class="u-position"><!--block-->
                     <div class="u-block">
                       <div class="u-block-container u-clearfix"><!--block_header-->
-                        <h5 class="u-block-header u-text"><!--block_header_content--> Block header <!--/block_header_content--></h5><!--/block_header--><!--block_content-->
-                        <div class="u-block-content u-text"><!--block_content_content--> Block content. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices. <!--/block_content_content--></div><!--/block_content-->
+                        <h5 class="u-block-header u-text"><!--block_header_content--> Quick Links <!--/block_header_content--></h5><!--/block_header--><!--block_content-->
+                        <div class="u-block-content u-text"><!--block_content_content--> 
+                          <ul>
+                            <li><a href="{{ route('contact') }}" class="link text-black display-4">Contact Us</a></li>
+                            <li><a href="{{ route('about') }}" class="link text-black display-4">About</a></li>
+                            <li><a href="{{ route('services') }}" class="link text-black display-4">Services</a></li>
+                          </ul>
+
+                         <!--/block_content_content--></div><!--/block_content-->
                       </div>
                     </div><!--/block-->
                   </div><!--/position-->
@@ -126,6 +145,11 @@ div,span,h1,h2,h3,h4,h5,h6,p,blockquote,a,ol,ul,li,figcaption,textarea,input{fon
         <a href="/" class="u-image u-logo u-image-1">
           <img src="{{ asset ('images/logo.png') }}" class="u-logo-image u-logo-image-1">
         </a>
-      </div></footer>
+      </div>
+        <script type="text/javascript" src="{{mix('/js/app.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('js/admin.js') }}"></script>
+    </footer>
+
+
 </body>
 </html>

@@ -623,7 +623,7 @@
     min-height: 858px;
   }
 } .u-section-4 {
-  background-image: linear-gradient(0deg, rgba(255,255,255,0.45), rgba(255,255,255,0.45)), url("../images/weewwe.jpg");
+  background-image: linear-gradient(0deg, rgba(255,255,255,0.45), rgba(255,255,255,0.45)), url("images/weewwe.jpg");
   background-position: 50% 50%;
 }
 
@@ -691,7 +691,7 @@
 .u-section-4 .u-image-1 {
   width: 255px;
   height: 255px;
-  background-image: url("../images/dff.jpg");
+  background-image: url("images/dff.jpg");
   background-position: 50% 50%;
   margin: 20px 0 0 auto;
 }
@@ -3089,7 +3089,7 @@
 .u-section-12 .u-image-1 {
   width: 131px;
   height: 131px;
-  background-image: url("../images/fd.jpg");
+  background-image: url("images/fd.jpg");
   background-position: 50% 50%;
   margin: 30px auto 0 0;
 }

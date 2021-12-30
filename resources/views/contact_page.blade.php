@@ -14,7 +14,8 @@
                   <div class="u-container-style u-layout-cell u-left-cell u-size-60 u-layout-cell-1">
                     <div class="u-container-layout u-valign-middle u-container-layout-1">
                       <h2 class="u-text u-text-1">Contact Us</h2>
-                      <p class="u-text u-text-2">Our mailing address is: <br>152A Charlotte Street, <br>Peterborough ON <br>Phone: 705-742-3221 
+                      <p class="u-text u-text-2">Our mailing address is: <br>Tamale, <br>Tamale <br>Phone: +233246082094 <br>
+                              +233263788420 
                       </p>
                       <div class="u-social-icons u-spacing-10 u-social-icons-1">
                         <a class="u-social-url" target="_blank" href=""><span class="u-icon u-icon-circle u-social-facebook u-social-icon u-icon-1">

@@ -12,21 +12,29 @@
                       <li data-u-target="#carousel-d4d4" class="u-grey-30" data-u-slide-to="1"></li>
                     </ol>
                     <div class="u-carousel-inner" role="listbox">
+                      @foreach($data['projects'] as $i=>$project)
                       <div class="u-active u-carousel-item u-container-style u-slide">
                         <div class="u-container-layout u-valign-bottom u-container-layout-2">
                           <div class="fr-view u-clearfix u-rich-text u-text u-text-2">
                             <h1>
-                              <span class="u-text-body-color">Project title</span>
+                              <span class="u-text-body-color">{{ $project->service_name }}</span><small style="color: #aeb6bf;">{{ $project->stage }}</small>
                             </h1>
                             <p>
-                              <span class="u-text-body-color">Latest update</span>
+                              <span class="u-text-body-color">{{ $project->comment }}</span>
+                            </p>
+                            <p>
+                              <ul>
+                                @foreach($data['service_features'] as $feature)
+                                  @if($feature->service_id == $project->service_id)
+                                    <li>{{ $feature->service_feature_name }}</li>
+                                  @endif
+                                @endforeach
+                              </ul>
                             </p>
                           </div>
                         </div>
                       </div>
-                      <div class="u-carousel-item u-container-style u-slide">
-                        <div class="u-container-layout u-container-layout-3"></div>
-                      </div>
+                      @endforeach
                     </div>
                     <a class="u-absolute-vcenter u-carousel-control u-carousel-control-prev u-spacing-5 u-text-grey-30 u-carousel-control-1" href="#carousel-d4d4" role="button" data-u-slide="prev">
                       <span aria-hidden="true">

@@ -1,0 +1,70 @@
+.tab-btn {
+	border-radius: 50%;
+	/*border: 1px solid black;*/
+	padding: 52px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	border: none;
+	transition: 0.2s ease-out;
+	width: 200px;
+	height: 200px;
+	font-family: "Verdana","Copperplate";
+}
+
+.tab-btn:hover, .tab-btn:hover .tab-btn{
+	/*background-color: blue;*/
+	transition: 0.2 s ease-in;
+	/*box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;*/
+	/*box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;*/
+	/*box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;*/
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.side-menu{
+	background-color: #566573;
+	color: white;
+	/*border: 1px black solid;*/
+	border-radius: 8px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+}
+
+.card-shadow{
+	/*box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;*/
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+	height: 200px;
+	width: 80%;
+}
+
+.card-shadow2{
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+.centerDiv{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.services-page{
+	margin-top: 80px;
+
+}
+
+.white-link, .white-link:hover, .white-link:active{
+	color: white;
+}
+
+.back-div{
+	width: 100%;
+	background-color: #f2f3f4;
+}
+
+.back-div:hover{
+	background-color: #d6eaf8;
+	cursor: pointer;
+}
+
+
+

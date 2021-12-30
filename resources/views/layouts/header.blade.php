@@ -8,8 +8,13 @@
             
             <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
             	<li class="nav-item">
+            		@if (Auth::check() &&Auth::user()->username == "admin")
+                    <a class="nav-link link text-black display-4" href="/admin">
+                        Home</a>
+                    @else
                     <a class="nav-link link text-black display-4" href="/">
                         Home</a>
+                    @endif
                 </li>
                 <li class="nav-item">
                     <a class="nav-link link text-black display-4" href="{{ route('services') }}">
@@ -18,7 +23,19 @@
                 <li class="nav-item">
                     <a class="nav-link link text-black display-4" href="{{ route('about') }}">
                         About Us</a>
-                </li></ul>
+                </li>
+                    @if (Auth::check() && Auth::user()->username == "admin")
+                        <li class="nav-item">
+                            <a class="nav-link link text-black display-4" href="{{ route('admin') }}">
+                                Manage</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link link text-black display-4" href="{{ route('customer') }}">
+                                Your Services</a>
+                        </li>
+                    @endif
+            </ul>
  	@guest
     	@if (Route::has('login'))
             <div class="navbar-buttons mbr-section-btn align-center"><a class="btn btn-sm btn-black display-4" href="{{ route('login') }}">
@@ -66,15 +83,20 @@
                   
               </amp-img>
           </span>
-          <!-- <p class="brand-name mbr-fonts-style mbr-bold display-4"><a href="/" class="text-primary">Heroes</a> -->
-      <!-- </p> -->
+          <p class="brand-name mbr-fonts-style mbr-bold display-4"><a href="/" class="text-primary">Heroes</a>
+      </p>
   </div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
             
             <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
             	<li class="nav-item">
+            		@if (Auth::check() && Auth::user()->username == "admin")
+                    <a class="nav-link link text-black display-4" href="/admin">
+                        Home</a>
+                    @else
                     <a class="nav-link link text-black display-4" href="/">
                         Home</a>
+                    @endif
                 </li>
                 <li class="nav-item">
                     <a class="nav-link link text-black display-4" href="{{ route('services') }}">
@@ -83,7 +105,19 @@
                 <li class="nav-item">
                     <a class="nav-link link text-black display-4" href="{{ route('about') }}">
                         About Us</a>
-                </li></ul>
+                </li>
+                @if (Auth::check() && Auth::user()->username == "admin")
+                    <li class="nav-item">
+                        <a class="nav-link link text-black display-4" href="{{ route('admin') }}">
+                            Manage</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link link text-black display-4" href="{{ route('customer') }}">
+                            Your Services</a>
+                    </li>
+                @endif
+                </ul>
 @guest
     	@if (Route::has('login'))
             <div class="navbar-buttons mbr-section-btn align-center"><a class="btn btn-sm btn-black display-4" href="{{ route('login') }}">

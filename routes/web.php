@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Service;
+use App\Models\Customer_project;
+use App\Models\Service_feature;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,29 +18,62 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     // return view('welcome');
-    return view('layouts.mainPage');
+    $data['services_f'] = Service::where('active',1)->take(5)->get();
+
+    return view('layouts.mainPage')->with('data',$data);
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin_index'])->name('admin');
 
 Route::get('/about', function () {
-    return view('about_page');
+    $data['services_f'] = Service::where('active',1)->take(5)->get();
+
+    return view('about_page')->with('data',$data);
 })->name('about');
 
 
 Route::get('/contact', function () {
-    return view('contact_page');
+    $data['services_f'] = Service::where('active',1)->take(5)->get();
+
+    return view('contact_page')->with('data',$data);
 })->name('contact');
 
 
 Route::get('/customer', function () {
-    return view('layouts.customer_page');
-})->name('customer');
+    $data['services_f'] = Service::where('active',1)->take(5)->get();
+
+    $data['services'] = Service::where('active',1)->get();
+
+    $data['service_features'] = Service_feature::where('active',1)->get();
+
+    $data['projects'] = Customer_project::join('services','services.service_id','customer_projects.service_id')
+                            ->where('created_by',Auth::user()->id)->get();
+
+    return view('layouts.customer_page')->with('data',$data);
+})->name('customer')->middleware('auth');
 
 
 Route::get('/services', function () {
-    return view('layouts.customer_page');
+    $data['services_f'] = Service::where('active',1)->take(5)->get();
+    
+    $data['services'] = Service::where('active',1)->get();
+
+    return view('layouts.services_page')->with('data',$data);
 })->name('services');
+
+
+Route::post('/add-service', [App\Http\Controllers\HomeController::class, 'add_service'])->name('add-service');
+
+Route::post('/request-service', [App\Http\Controllers\HomeController::class, 'request_service'])->name('request-service');
+
+Route::get('/edit-service/{service_id}',[App\Http\Controllers\HomeController::class, 'edit_service'])->name('edit-service');
+
+Route::get('/view-service/{service_id}',[App\Http\Controllers\HomeController::class, 'view_service'])->name('view-service');
+
+Route::post('/delete-service',[App\Http\Controllers\HomeController::class, 'delete_service'])->name('delete-service');
+
+Route::post('/save-service',[App\Http\Controllers\HomeController::class, 'save_service'])->name('save-service');
