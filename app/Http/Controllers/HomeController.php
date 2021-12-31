@@ -108,14 +108,16 @@ class HomeController extends Controller
 
     public function get_customers(Request $request){
 
-        $data['customers'] = User::leftJoin('customer_projects','customer_projects.created_by','=','users.id')
-                                ->where('is_staff',0)->get();
+        $data['customers'] = User::where('is_staff',0)->get();
 
         return $data;
     }
 
     public function get_customer_projects(Request $request){
         $data['customers'] = User::leftJoin('customer_projects','customer_projects.created_by','=','users.id')
+                                ->where('is_staff',0)->get();
+
+        $data['customer_projects'] = User::leftJoin('customer_projects','customer_projects.created_by','=','users.id')
                                 ->where('is_staff',0)->get();
 
         return $data;

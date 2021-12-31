@@ -41,7 +41,6 @@ div,span,h1,h2,h3,h4,h5,h6,p,blockquote,a,ol,ul,li,figcaption,textarea,input{fon
     
     
     
-    <!-- <link rel="stylesheet" type="text/css" href="{{mix('/css/app.css')}}"> -->
 <script src="https://unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/moment@2.22.1/min/moment.min.js"></script>
