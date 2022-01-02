@@ -59,7 +59,7 @@ Route::get('/customer', function () {
 
 Route::get('/services', function () {
     $data['services_f'] = Service::where('active',1)->take(5)->get();
-    
+
     $data['services'] = Service::where('active',1)->get();
 
     return view('layouts.services_page')->with('data',$data);
@@ -70,9 +70,15 @@ Route::post('/add-service', [App\Http\Controllers\HomeController::class, 'add_se
 
 Route::post('/request-service', [App\Http\Controllers\HomeController::class, 'request_service'])->name('request-service');
 
+Route::post('/update-project', [App\Http\Controllers\HomeController::class, 'update_project'])->name('update-project');
+
+Route::post('/close-project', [App\Http\Controllers\HomeController::class, 'close_project'])->name('close-project');
+
 Route::get('/edit-service/{service_id}',[App\Http\Controllers\HomeController::class, 'edit_service'])->name('edit-service');
 
 Route::get('/view-service/{service_id}',[App\Http\Controllers\HomeController::class, 'view_service'])->name('view-service');
+
+Route::get('/view-project/{project_id}',[App\Http\Controllers\HomeController::class, 'view_project'])->name('view-project');
 
 Route::post('/delete-service',[App\Http\Controllers\HomeController::class, 'delete_service'])->name('delete-service');
 

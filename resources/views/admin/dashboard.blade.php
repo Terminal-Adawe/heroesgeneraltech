@@ -3,7 +3,7 @@
 		<div class="card card-shadow">
 			<div class="centerDiv">
 				<p class="mx-auto"><h1>
-					{{ $data['count']->number_of_users }}
+					{{ $data['customer_count']->number_of_users }}
 				</h1>
 				</p>
 				<small>total customers</small>
@@ -14,10 +14,10 @@
 		<div class="card card-shadow">
 			<div class="centerDiv">
 				<p class="mx-auto"><h1>
-					25
+					{{ $data['projects_count']->number_of_projects }}
 				</h1>
 				</p>
-				<small>pending projects</small>
+				<small>total projects</small>
 			</div>
 		</div>
 	</div>
@@ -25,10 +25,10 @@
 		<div class="card card-shadow">
 			<div class="centerDiv">
 				<p class="mx-auto"><h1>
-					25
+					{{ $data['pending_projects_count']->number_of_projects }}
 					</h1>
 				</p>
-				<small class="mx-auto">customers</small>
+				<small class="mx-auto">pending projects</small>
 			</div>
 		</div>
 	</div>

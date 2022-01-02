@@ -17,3 +17,5 @@ require('./components/Features');
 require('./components/Stages');
 
 require('./components/Customers');
+
+require('./components/CountDown');
