@@ -2,13 +2,14 @@
 
 <head>
 	<link rel="stylesheet" href="{{ asset('css/customer.css') }}" media="screen">
+	<link rel="stylesheet" href="{{ asset('css/customer_c.css') }}" media="screen">
 	<link rel="stylesheet" href="{{ asset('bootstrap-5.0.2-dist/css/bootstrap.min.css') }}" media="screen">
 </head>
 
 @section('content')
-	@include('customer_features')
-	@include('company_products')
+	@include('customer_landing_page')
 	@include('customer_project_dashboard')
+	@include('services')
 	<section class="u-clearfix u-grey-5 u-section-7" id="sec-8871">
 		@include('contact_m')
 	</section>

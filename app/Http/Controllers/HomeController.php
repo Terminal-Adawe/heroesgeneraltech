@@ -171,15 +171,16 @@ class HomeController extends Controller
         $project_id = $request->project_id;
         $stage = $request->service_stage_id;
         $comment = $request->comment;
+        $cost = $request->cost;
         $due_date = $request->due_date;
 
         Log::debug("due date is ");
         Log::debug($due_date);
 
-        $update=['comment'=>$comment,'stage'=>$stage,'objective_completion_date'=>$due_date];
+        $update=['comment'=>$comment,'stage'=>$stage,'objective_completion_date'=>$due_date,'cost'=>$cost];
 
         if(trim($due_date)==""){
-            $update=['comment'=>$comment,'stage'=>$stage];
+            $update=['comment'=>$comment,'stage'=>$stage,'cost'=>$cost];
         }
 
         Customer_project::where('customer_project_id',$project_id)
@@ -221,11 +222,23 @@ class HomeController extends Controller
     }
 
     public function get_customer_projects(Request $request){
-        $data['customers'] = User::leftJoin('customer_projects','customer_projects.created_by','=','users.id')
-                                ->where('is_staff',0)->get();
+        // $data['customers'] = User::leftJoin('customer_projects','customer_projects.created_by','=','users.id')
+        //                         ->where('is_staff',0)->get();
 
-        $data['customer_projects'] = User::leftJoin('customer_projects','customer_projects.created_by','=','users.id')
-                                ->where('is_staff',0)->get();
+        // $data['customer_projects'] = User::leftJoin('customer_projects','customer_projects.created_by','=','users.id')
+        //                         ->where('is_staff',0)->get();
+
+        $data['service_features'] = Service::LeftJoin('service_features','service_features.service_id','services.service_id')
+                                        ->select('*','services.service_id as s_service_id')
+                                        ->where('service_features.active',1)->get();
+
+        $data['service_stages'] = Service_stage::join('customer_projects','customer_projects.service_id','service_stages.service_id')
+                                ->where('customer_projects.created_by',Auth::user()->id)
+                                ->orWhere('service_stages.service_id',0)
+                                ->get();
+
+        $data['projects'] = Customer_project::join('services','services.service_id','customer_projects.service_id')
+                            ->where('created_by',Auth::user()->id)->get();
 
         return $data;
     }

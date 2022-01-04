@@ -48,11 +48,6 @@ Route::get('/customer', function () {
 
     $data['services'] = Service::where('active',1)->get();
 
-    $data['service_features'] = Service_feature::where('active',1)->get();
-
-    $data['projects'] = Customer_project::join('services','services.service_id','customer_projects.service_id')
-                            ->where('created_by',Auth::user()->id)->get();
-
     return view('layouts.customer_page')->with('data',$data);
 })->name('customer')->middleware('auth');
 

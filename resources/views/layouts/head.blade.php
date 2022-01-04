@@ -10,6 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Home</title>
     <link rel="stylesheet" href="{{ asset('css/nicepage.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ asset('bootstrap-5.0.2-dist/css/bootstrap.min.css') }}" media="screen">
     <script class="u-script" type="text/javascript" src="{{ asset('js/jquery.js') }}" defer=""></script>
     <script class="u-script" type="text/javascript" src="{{ asset('js/nicepage.js') }}" defer=""></script>
     <meta name="generator" content="Nicepage 4.1.0, nicepage.com">
@@ -57,7 +58,7 @@ div,span,h1,h2,h3,h4,h5,h6,p,blockquote,a,ol,ul,li,figcaption,textarea,input{fon
     <meta property="og:type" content="website">
   </head>
 
-  <body class="u-body u-overlap">
+  <body>
     @include('layouts.header')
   @yield('content')
 
@@ -145,8 +146,11 @@ div,span,h1,h2,h3,h4,h5,h6,p,blockquote,a,ol,ul,li,figcaption,textarea,input{fon
           <img src="{{ asset ('images/logo.png') }}" class="u-logo-image u-logo-image-1">
         </a>
       </div>
+      <script type="text/javascript" src="{{ asset('bootstrap-5.0.2-dist/js/bootstrap.min.js') }}"></script>
         <script type="text/javascript" src="{{mix('/js/app.js')}}"></script>
         <script type="text/javascript" src="{{ asset('js/admin.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/tilt.js') }}"></script>
     </footer>
 
 

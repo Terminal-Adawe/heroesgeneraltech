@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-function CountDown() {
+function CountDown(props) {
 
     const [dueDate, setDueDate] = useState(0);
     const [dateDiff, setDateDiff] = useState(0);
@@ -12,32 +12,49 @@ function CountDown() {
     const [times, setTimes] = useState(0);
 
     useEffect(()=>{
-        let date = document.getElementById("due_date").value;
+        let date = '';
+
+        props.date ? date=props.date : date = document.getElementById("due_date").value;
+
         date = new Date(date);
 
         let nowDate = new Date();
 
         let dateDiff =  date - nowDate;
 
-        console.log("date is ");
-        console.log(date);
+        if(nowDate>date){
+            console.log("Don't bother")
+            const hours = "00";
+            const minutes = "00";
+            const seconds = "00";
 
-        console.log("now date is ");
-        console.log(nowDate);
+            setHour(hours);
+            setMin(minutes);
+            setSec(seconds);
+        } else {
+            console.log("date is ");
+            console.log(date);
 
-        console.log("date diff is ");
-        console.log(dateDiff);
+            console.log("now date is ");
+            console.log(nowDate);
 
-        calculateTime(dateDiff);
+            console.log("date diff is ");
+            console.log(dateDiff);
 
-        const interval = setInterval(() => {
-            nowDate = new Date();
-            dateDiff =  date - nowDate;
             calculateTime(dateDiff);
-        }, 1000);
+
+            const interval = setInterval(() => {
+                nowDate = new Date();
+                dateDiff =  date - nowDate;
+                calculateTime(dateDiff);
+            }, 1000);
+
+            setDateDiff(dateDiff);
+        }
 
         setDueDate(date);
-        setDateDiff(dateDiff);
+
+        
     },count)
 
 

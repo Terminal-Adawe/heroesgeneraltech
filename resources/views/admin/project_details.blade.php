@@ -108,9 +108,13 @@
 				<div class="col-md-6 col-sm-12 mt-2"><label>Add comment</label>
 					<textarea class="form-control" id="comment" rows="2" name="comment">{{ $data['project_details'][0]->comment }}</textarea>
 				</div>
-				<div class="col-12 mt-4">
+				<div class="col-6 mt-4">
 					<label>Date project will be completed</label>
 					<input type="date" name="due_date" class="form-control" value="{{ $data['project_details'][0]->objective_completion_date }}">
+				</div>
+				<div class="col-6 mt-4">
+					<label>What is the cost of this project?</label>
+					<input type="number" name="cost" class="form-control" value="{{ $data['project_details'][0]->cost }}">
 				</div>
 			</div>
 			<div class="row my-2">

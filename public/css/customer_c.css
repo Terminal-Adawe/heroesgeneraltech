@@ -1,0 +1,78 @@
+.eachItem{
+	filter: brightness(1.0);
+	background-image: url('../images/cctv2.jpg');
+	background-color: black;
+}
+
+.carouselHolder{
+	width: 100%;
+	height: 100%;
+}
+
+.backDrop{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 0;
+	background-image: url('../images/cctv2.jpg');
+	/*background-color: black;*/
+	filter: brightness(0.2);
+}
+
+#projects-carousel{
+	width: 100%;
+	min-height: 500px;
+	padding-bottom: 12px;
+	padding-top: 10px;
+	border-radius: 12px;
+}
+
+.landing-div-customer{
+	width: 100%;
+	height: 95vh;
+	background: #D38312;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #A83279, #D38312);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #A83279, #D38312); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.centerDiv{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.extra-features{
+	padding-left: 20%;
+	padding-top: 10%;
+}
+
+.customer_projects{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.landing-image{
+	background-image: url('../images/cctv1.jpg');
+	background-position: center;
+	background-size: cover;
+	height: 300px;
+	width: 350px;
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+
+.customer_projects_service_desc{
+	max-height: 200px;
+	overflow-y: scroll;
+}
+
+.carousel-item{
+	overflow-y: scroll;
+}
+
+

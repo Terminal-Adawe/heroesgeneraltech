@@ -103,6 +103,26 @@ class Api {
    
             return await res;
     }
+
+
+    // Get customer projects
+    async getCustomerProjects(){
+            console.log("calling get customer projects")
+
+            const config = {
+        		method: 'get',
+        		url: '/api/get-customer-projects',
+        		// params:{ storyid: storyid, pageno: pageNo, type: type, optionid: optionid }
+        		// headers: {
+          //            'X-CSRFTOKEN': $('meta[name="csrf-token"]').attr('content'),
+          //            "Authorization": 'Bearer '+ $('meta[name="csrf-token"]').attr('content'),
+          //        }
+    		}
+
+            const res = await axios(config);
+   
+            return await res;
+    }
 }
 
 export default Api

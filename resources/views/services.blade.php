@@ -1,4 +1,4 @@
-<div class="row" style="background-color: #f8f9f9; margin-top: 100px;">
+<div class="row" style="background-color: #f8f9f9;">
 <div class="container-fluid my-4">
 	<div class="row my-2">
 		<div class="col-12">

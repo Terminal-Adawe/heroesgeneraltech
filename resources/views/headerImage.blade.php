@@ -8,7 +8,7 @@
         </h3>
         
         <div class="mbr-section-btn align-right">
-            <a class="btn btn-md btn-white display-4" href="/">
+            <a class="btn btn-md btn-white display-4" href="{{ route('about') }}">
                 Learn More
             </a>
         </div>

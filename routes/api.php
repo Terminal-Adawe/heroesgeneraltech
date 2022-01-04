@@ -29,3 +29,5 @@ Route::middleware('auth:sanctum')->get('/get-stages', [App\Http\Controllers\Home
 Route::middleware('auth:sanctum')->post('/add-stage', [App\Http\Controllers\HomeController::class, 'add_stage'])->name('add-stage');
 
 Route::middleware('auth:sanctum')->get('/get-customers', [App\Http\Controllers\HomeController::class, 'get_customers'])->name('get-customers');
+
+Route::middleware('auth:sanctum')->get('/get-customer-projects', [App\Http\Controllers\HomeController::class, 'get_customer_projects'])->name('get-customer-projects');
