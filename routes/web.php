@@ -60,7 +60,6 @@ Route::get('/services', function () {
     return view('layouts.services_page')->with('data',$data);
 })->name('services');
 
-
 Route::post('/add-service', [App\Http\Controllers\HomeController::class, 'add_service'])->name('add-service');
 
 Route::post('/request-service', [App\Http\Controllers\HomeController::class, 'request_service'])->name('request-service');
@@ -78,3 +77,13 @@ Route::get('/view-project/{project_id}',[App\Http\Controllers\HomeController::cl
 Route::post('/delete-service',[App\Http\Controllers\HomeController::class, 'delete_service'])->name('delete-service');
 
 Route::post('/save-service',[App\Http\Controllers\HomeController::class, 'save_service'])->name('save-service');
+
+Route::post('/admin/manage-staff', function () {
+    $data['services_f'] = Service::where('active',1)->take(5)->get();
+
+
+    return view('admin.manage_staff')->with('data',$data);
+})->name('manage_s')->middleware('auth');
+
+
+

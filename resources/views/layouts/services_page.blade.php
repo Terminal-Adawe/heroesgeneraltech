@@ -2,12 +2,10 @@
 
 <head>
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}" media="screen">
-
-    <link rel="stylesheet" href="{{ asset('bootstrap-5.0.2-dist/css/bootstrap.min.css') }}" media="screen">
 </head>
 
 @section('content')
-<div class="container-fluid services-page">
+<div class="container-fluid" style="padding-top: 70px;">
   @if(Auth::check() && Auth::user()->username=='admin')
 	<ul class="nav nav-pills nav-fill">
     <li class="nav-item">
@@ -54,5 +52,3 @@
     </div>
   </div>
 </div>
-
-<script type="text/javascript" src="{{ asset('bootstrap-5.0.2-dist/js/bootstrap.min.js') }}"></script>

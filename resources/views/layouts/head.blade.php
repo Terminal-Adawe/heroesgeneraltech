@@ -11,6 +11,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="{{ asset('css/nicepage.css') }}" media="screen">
     <link rel="stylesheet" href="{{ asset('bootstrap-5.0.2-dist/css/bootstrap.min.css') }}" media="screen">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script class="u-script" type="text/javascript" src="{{ asset('js/jquery.js') }}" defer=""></script>
     <script class="u-script" type="text/javascript" src="{{ asset('js/nicepage.js') }}" defer=""></script>
     <meta name="generator" content="Nicepage 4.1.0, nicepage.com">
@@ -151,6 +152,10 @@ div,span,h1,h2,h3,h4,h5,h6,p,blockquote,a,ol,ul,li,figcaption,textarea,input{fon
         <script type="text/javascript" src="{{ asset('js/admin.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/tilt.js') }}"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+          AOS.init();
+        </script>
     </footer>
 
 

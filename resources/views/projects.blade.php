@@ -1,10 +1,10 @@
 <section class="u-clearfix u-section-3" id="carousel_e681">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <div class="u-image u-image-circle u-image-1" data-image-width="1200" data-image-height="1048"></div>
+        <div class="u-image u-image-circle u-image-1" data-image-width="1200" data-image-height="1048" data-aos="fade-up" data-aos-delay="60"></div>
         <div class="u-border-9 u-border-palette-5-light-1 u-image u-image-circle u-image-2" data-image-width="626" data-image-height="625"></div>
-        <div class="u-border-20 u-border-white u-image u-image-circle u-image-3" data-image-width="626" data-image-height="626"></div>
-        <div class="u-palette-2-base u-shape u-shape-circle u-shape-1"></div>
-        <div class="u-shape u-shape-svg u-text-palette-2-base u-shape-2">
+        <div class="u-border-20 u-border-white u-image u-image-circle u-image-3" data-image-width="626" data-image-height="626" data-aos="fade-in" data-aos-duration="1500"></div>
+        <div class="u-palette-2-base u-shape u-shape-circle u-shape-1" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-delay="70" ></div>
+        <div data-aos="fade-up" class="u-shape u-shape-svg u-text-palette-2-base u-shape-2" data-aos-duration="1500">
           <svg class="u-svg-link" preserveAspectRatio="none" viewBox="0 0 160 160" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-db78"></use></svg>
           <svg class="u-svg-content" viewBox="0 0 160 160" x="0px" y="0px" id="svg-db78"><path d="M114.3,152.3l38-38C144.4,130.9,130.9,144.4,114.3,152.3z M117.1,9.1l-108,108c0.8,1.6,1.7,3.2,2.7,4.8l110-110
   C120.3,10.9,118.7,10,117.1,9.1z M97.5,2L2,97.5c0.4,2,1,4,1.5,5.9l99.9-99.9C101.5,2.9,99.5,2.4,97.5,2z M80,160c2,0,4-0.1,5.9-0.2

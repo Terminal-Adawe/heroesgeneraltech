@@ -11,9 +11,9 @@
  				   		</div>
 
  				   		<div class="ms-2 mr-auto">
- 				   			<span class="badge bg-primary rounded-pill">{{ $project->service_stage_name }}</span>
+ 				   			<span class="badge bg-primary rounded-pill mt-1">{{ $project->service_stage_name }}</span>
  				   
- 				   			<span class="badge bg-info rounded-pill"><a href="{{ route('view-project',['project_id'=>$project->customer_project_id]) }}" class="white-link">view</a></span>
+ 				   			<span class="badge bg-info rounded-pill mt-1"><a href="{{ route('view-project',['project_id'=>$project->customer_project_id]) }}" class="white-link">view</a></span>
  				   		</div>
   					</li>
   					@endforeach

@@ -6,10 +6,10 @@
 @section('content')
 	<section class="u-align-center u-clearfix u-section-1" id="carousel_76da" style="padding-top: 180px;">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h3 class="u-custom-font u-font-montserrat u-text u-text-palette-1-base u-text-1">HEROES GENERAL TECH</h3>
-        <p class="u-custom-font u-font-pt-sans u-text u-text-2">Heroes General Tech has been established for more than 7 years and has been providing security and safety solutions to families and businessses particularly into a broad range of industries covering household and industrial.</p>
+        <h3 class="u-custom-font u-font-montserrat u-text u-text-palette-1-base u-text-1" data-aos="fade-up">HEROES GENERAL TECH</h3>
+        <p class="u-custom-font u-font-pt-sans u-text u-text-2" data-aos="fade-in" data-aos-delay="50">Heroes General Tech has been established for more than 7 years and has been providing security and safety solutions to families and businessses particularly into a broad range of industries covering household and industrial.</p>
         <div class="u-border-1 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div>
-        <a href="{{ route('contact') }}" class="u-active-palette-2-base u-border-none u-btn u-button-style u-hover-palette-2-light-2 u-palette-1-base u-text-active-white u-text-body-alt-color u-text-hover-white u-btn-1">Contact Me</a>
+        <a href="{{ route('contact') }}" class="u-active-palette-2-base u-border-none u-btn u-button-style u-hover-palette-2-light-2 u-palette-1-base u-text-active-white u-text-body-alt-color u-text-hover-white u-btn-1" data-aos="fade-in" data-aos-duration="2000" data-aos-once="false">Contact Me</a>
         <div class="u-clearfix u-expanded-width-sm u-expanded-width-xs u-layout-wrap u-layout-wrap-1">
           <div class="u-gutter-0 u-layout">
             <div class="u-layout-row">

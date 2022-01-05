@@ -1,7 +1,7 @@
 
       <img class="u-expanded-width u-image u-image-default u-image-1" data-image-width="1920" data-image-height="990" src="{{ asset('images/securityImage.jpg') }}">
-      <div class="u-palette-2-base u-shape u-shape-rectangle u-shape-1"></div>
-      <div class="u-align-left u-container-style u-group u-white u-group-1">
+      <div class="u-palette-2-base u-shape u-shape-rectangle u-shape-1" data-aos="fade-in"></div>
+      <div class="u-align-left u-container-style u-group u-white u-group-1"  data-aos="fade-up-right" data-aos-once="true">
         <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-xl u-valign-top-sm u-valign-top-xs u-container-layout-1">
           <div class="u-palette-2-base u-shape u-shape-circle u-shape-2"></div>
           <h1 class="u-custom-font u-font-oswald u-text u-text-1"> Heroes General Tech</h1>
@@ -10,7 +10,7 @@
           </p> -->
         </div>
       </div>
-      <div class="u-align-left u-container-style u-group u-palette-5-dark-3 u-group-2">
+      <div class="u-align-left u-container-style u-group u-palette-5-dark-3 u-group-2" data-aos-delay="80" data-aos-duration="1000" data-aos="flip-left" data-aos-once="true">
         <div class="u-container-layout u-valign-middle u-container-layout-2">
           <h3 class="u-text u-text-4">call us</h3>
           <p class="u-text u-text-5">+233246082094<br>+233263788420

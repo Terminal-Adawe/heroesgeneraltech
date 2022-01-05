@@ -51,7 +51,7 @@ class CustomerProjects extends React.Component {
 	render(){
 		return (<div className="row">
         <div className="col-md-7">
-            <div id="projects-carousel" className="carousel slide" data-bs-ride="carousel">
+            <div data-aos="fade-right" data-aos-duration="1300" data-aos-once="true" id="projects-carousel" className="carousel slide" data-bs-ride="carousel">
                   <div className="carousel-indicators">
                     {
                     	this.state.customer_projects ? this.state.customer_projects.map((project, i)=>{

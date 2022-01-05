@@ -1,6 +1,6 @@
 <section class="u-align-center u-clearfix u-section-2" id="carousel_a59b">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <img class="u-image u-image-default u-image-1" src="{{ asset('images/cctv2.jpg') }}" alt="" data-image-width="150" data-image-height="97">
+        <img class="u-image u-image-default u-image-1" src="{{ asset('images/cctv2.jpg') }}" alt="" data-image-width="150" data-image-height="97" data-aos="fade-in" data-aos-easing="ease-in-out">
         <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
           <div class="u-layout">
             <div class="u-layout-row">

@@ -1,4 +1,4 @@
-<div class="row" style="background-color: #f8f9f9;">
+<div class="row" style="background-color: #f8f9f9; padding-top: 40px;">
 <div class="container-fluid my-4">
 	<div class="row my-2">
 		<div class="col-12">
@@ -8,9 +8,9 @@
 		</div>
 	</div>
 <div class="row">
-	@foreach($data['services'] as $service)
-		<div class="col-md-4">
-			<div class="card card-shadow2">
+	@foreach($data['services'] as $i=>$service)
+		<div class="col-md-4 mt-2">
+			<div class="card card-shadow2" data-aos="fade-left" data-aos-offset="300" data-aos-delay="30">
 				<div class="card-body">
 					<h2><b>{{ $service->service_name }}</b></h2>
 
