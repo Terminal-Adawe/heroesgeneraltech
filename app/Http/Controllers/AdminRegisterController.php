@@ -48,4 +48,16 @@ class AdminRegisterController extends Controller
         return redirect()->back()->with('status','User added Successful !');
 
     }
+
+    public function view_staff(Request $request){
+        $data['services_f'] = Service::where('active',1)->take(5)->get();
+
+
+        $data['users'] = User::join('roles','roles.role_id','users.role')
+                            ->where('is_staff',1)
+                            ->whereNotIn('role',[2])
+                            ->get();
+
+        return view('admin.view_staff')->with('data',$data);
+    }
 }
