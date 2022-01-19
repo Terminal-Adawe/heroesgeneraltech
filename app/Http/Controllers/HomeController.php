@@ -238,6 +238,8 @@ class HomeController extends Controller
                                 ->get();
 
         $data['projects'] = Customer_project::join('services','services.service_id','customer_projects.service_id')
+                            ->join('service_stages','customer_projects.stage','service_stages.service_stage_id')
+                            ->select('*','customer_projects.service_id as serviceid')
                             ->where('created_by',Auth::user()->id)->get();
 
         return $data;

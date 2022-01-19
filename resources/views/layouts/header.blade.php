@@ -21,12 +21,15 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ route('about') }}">About Us</a>
         </li>
-        @if (Auth::check() && Auth::user()->username == "admin")
+        @if (Auth::check() && Auth::user()->role == "2")
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('admin') }}">Manage</a>
+          <a class="nav-link" href="{{ route('admin') }}">Manage Customers</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('/admin/manage-staff') }}">Manage your staff</a>
+          <a class="nav-link" href="{{ route('manage-staff') }}">Manage your staff</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('manage-operations') }}">Manage Operations</a>
         </li>
         @else
         <li class="nav-item">

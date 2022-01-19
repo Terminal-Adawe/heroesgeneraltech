@@ -1,3 +1,15 @@
+nav{
+	font-size: 13px;
+}
+
+body{
+	font-size: 14px;
+}
+
+footer{
+	font-size: 13px;
+}
+
 .tab-btn {
 	border-radius: 50%;
 	/*border: 1px solid black;*/
@@ -66,5 +78,49 @@
 	cursor: pointer;
 }
 
+.users_menu{
+	background-color: #36587a;
+	color: whitesmoke;
+	position: relative;
+	border-radius: 5px;
+	max-width: 70%;
+}
+
+.users_menu a{
+	color: whitesmoke;
+}
+
+.users_menu a:hover{
+	color: white;
+}
+
+.list-group-custom .list-group-item {
+  background-color: #36587a;
+  /*border-top: 1px solid #0091b5;
+  border-left-color: #fff;
+  border-right-color: #fff;
+*/}
+
+.invoice-logo{
+	width: 100px;
+	height: 100px;
+}
+
+.invoice-list{
+	border-radius: 10px;
+	width: 100%;
+	position: relative;
+	transition: 0.5s ease-in;
+}
+
+.invoice-list:hover{
+	cursor: pointer;
+	transform: translateY(-2px);
+	transition: 0.2s ease-in;
+}
+
+.shadow1{
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
 
 

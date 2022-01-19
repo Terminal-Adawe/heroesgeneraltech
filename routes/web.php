@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Service;
 use App\Models\Customer_project;
 use App\Models\Service_feature;
+use App\Models\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,12 +79,30 @@ Route::post('/delete-service',[App\Http\Controllers\HomeController::class, 'dele
 
 Route::post('/save-service',[App\Http\Controllers\HomeController::class, 'save_service'])->name('save-service');
 
-Route::post('/admin/manage-staff', function () {
-    $data['services_f'] = Service::where('active',1)->take(5)->get();
+Route::post('/register-staff', [App\Http\Controllers\AdminRegisterController::class, 'store'])->name('register-staff')->middleware('auth');
+
+Route::get('/admin/add-staff', [App\Http\Controllers\AdminRegisterController::class, 'create'])->name('add-staff')->middleware('auth');
+
+Route::get('/admin/create-invoice', [App\Http\Controllers\ManageOperationsController::class, 'create_invoice'])->name('create-invoice')->middleware('auth');
+
+Route::post('/admin/add-invoice', [App\Http\Controllers\ManageOperationsController::class, 'add_invoice'])->name('add-invoice')->middleware('auth');
+
+Route::get('/admin/view-invoice', [App\Http\Controllers\ManageOperationsController::class, 'view_invoice'])->name('view-invoice')->middleware('auth');
+
+Route::get('/admin/view-projects', [App\Http\Controllers\ManageOperationsController::class, 'view_projects'])->name('view-projects')->middleware('auth');
 
 
-    return view('admin.manage_staff')->with('data',$data);
-})->name('manage_s')->middleware('auth');
+Route::get('/admin/manage-staff', function () {
+    return redirect('/admin/add-staff');
+})->name('manage-staff')->middleware('auth');
+
+Route::get('/admin/view-staff', [App\Http\Controllers\AdminRegisterController::class, 'view_staff'])->name('view-staff')->middleware('auth');
+
+Route::get('/admin/overview', [App\Http\Controllers\ManageOperationsController::class, 'overview'])->name('overview')->middleware('auth');
+
+Route::get('/admin/manage-operations', function () {
+    return redirect('/admin/overview');
+})->name('manage-operations')->middleware('auth');
 
 
 

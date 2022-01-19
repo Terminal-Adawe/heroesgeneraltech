@@ -65,11 +65,12 @@ class CustomerProjects extends React.Component {
                     		return <div key={ i } className={`carousel-item carouselHolder ${ i==0 ? 'active' : '' }`}>
                           <div className="backDrop"></div>
                         <div className="centerDiv">
-                          <h2>{ project.service_name } <small><CountDown date={ project.objective_completion_date }/></small></h2>
+                          <h2>{ project.service_name } <small><div className="card"><CountDown date={ project.objective_completion_date }/></div></small></h2>
+                          <p>{ project.customer_comments }</p>
                           <p>{ project.service_stage_name }</p>
                           <p>
                             <button data-bs-toggle="collapse" data-bs-target={`#project${ project.customer_project_id }`} aria-expanded="false" aria-controls="collapseExample" type="button" className="btn btn-info mx-1">Update Project</button>
-                          	<button type="button" className="btn btn-outline-secondary" onClick={(e)=>this.carouselChange(e,project.customer_project_id,project.service_id)}>View features</button>
+                          	<button type="button" className="btn btn-outline-secondary" onClick={(e)=>this.carouselChange(e,project.customer_project_id,project.serviceid)}>View features</button>
                           </p>
                           <div className="collapse" id={`project${ project.customer_project_id }`}>
                             <div className="card card-body">
@@ -86,12 +87,12 @@ class CustomerProjects extends React.Component {
                               			</ul>
                               		</div>
                               		<div className="col-md-6 col-sm-12">
-										<h4>${ project.cost }</h4>
+										You owe <h4>${ project.cost==null ? 0 : project.cost }</h4>
 
                               			<p>
                               				<label>Pay</label>
                               				<input type="text" className="form-control"/>
-                              				<button className="btn btn-link">Submit</button>
+                              				<button className="btn btn-outline-secondary btn-sm">Submit</button>
                               			</p>
                               		</div>
                               	</div>
@@ -118,8 +119,8 @@ class CustomerProjects extends React.Component {
         <div className="col-md-5">
           <div className="extra-features">
           	{
-              	this.state.features ? this.state.features.filter(feature=>feature.s_service_id==this.state.serviceid).slice(1).map((feature, i)=>{
-              		return <span key={i} className="customer_projects_service_desc">{ feature.service_description }</span>
+              	this.state.features ? this.state.features.filter(feature=>feature.s_service_id==this.state.serviceid).map((feature, i)=>{
+              		i==1 ? <span key={i} className="customer_projects_service_desc">{ feature.service_description }</span> : ''
               	}) : ""
             }
             <h2>Features</h2>

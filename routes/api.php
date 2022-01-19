@@ -31,3 +31,21 @@ Route::middleware('auth:sanctum')->post('/add-stage', [App\Http\Controllers\Home
 Route::middleware('auth:sanctum')->get('/get-customers', [App\Http\Controllers\HomeController::class, 'get_customers'])->name('get-customers');
 
 Route::middleware('auth:sanctum')->get('/get-customer-projects', [App\Http\Controllers\HomeController::class, 'get_customer_projects'])->name('get-customer-projects');
+
+Route::middleware('auth:sanctum')->get('/get-invoice-details', [App\Http\Controllers\ManageOperationsController::class, 'get_invoice_details'])->name('get-invoice-details');
+
+Route::middleware('auth:sanctum')->get('/get-invoices', [App\Http\Controllers\ManageOperationsController::class, 'get_invoices'])->name('get-invoices');
+
+Route::middleware('auth:sanctum')->post('/add-invoice-details', [App\Http\Controllers\ManageOperationsController::class, 'add_invoice'])->name('add-invoice-details');
+
+Route::middleware('auth:sanctum')->post('/save-invoice-items', [App\Http\Controllers\ManageOperationsController::class, 'save_invoice_item'])->name('save-invoice-items');
+
+Route::middleware('auth:sanctum')->post('/confirm-invoice-save', [App\Http\Controllers\ManageOperationsController::class, 'confirm_invoice_save'])->name('confirm-invoice-save');
+
+
+
+
+
+
+
+

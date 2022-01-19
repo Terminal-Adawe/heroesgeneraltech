@@ -123,6 +123,104 @@ class Api {
    
             return await res;
     }
+
+
+    // Get Invoices
+    async fetchInvoices(){
+            console.log("calling get invoices")
+
+            const config = {
+        		method: 'get',
+        		url: '/api/get-invoices',
+        		// params:{ storyid: storyid, pageno: pageNo, type: type, optionid: optionid }
+        		// headers: {
+          //            'X-CSRFTOKEN': $('meta[name="csrf-token"]').attr('content'),
+          //            "Authorization": 'Bearer '+ $('meta[name="csrf-token"]').attr('content'),
+          //        }
+    		}
+
+            const res = await axios(config);
+   
+            return await res;
+    }
+
+    // Get Invoice Details
+    async getInvoiceDetails(){
+            console.log("calling get invoice details")
+
+            const config = {
+        		method: 'get',
+        		url: '/api/get-invoice-details',
+        		// params:{ storyid: storyid, pageno: pageNo, type: type, optionid: optionid }
+        		// headers: {
+          //            'X-CSRFTOKEN': $('meta[name="csrf-token"]').attr('content'),
+          //            "Authorization": 'Bearer '+ $('meta[name="csrf-token"]').attr('content'),
+          //        }
+    		}
+
+            const res = await axios(config);
+   
+            return await res;
+    }
+
+
+    // Save Invoice Details
+    async saveInvoiceDetails(project_id){
+            console.log("calling add invoice details")
+
+            const config = {	
+        		method: 'post',
+        		url: '/api/add-invoice-details',
+        		params:{ project_id: project_id }
+        		// headers: { 
+          //            'X-CSRFTOKEN': $('meta[name="csrf-token"]').attr('content'),
+          //            "Authorization": 'Bearer '+ $('meta[name="csrf-token"]').attr('content'),
+          //        }
+    		}
+
+            const res = await axios(config);
+   
+            return await res;
+    }
+
+    // Save Invoice Details
+    async saveInvoiceItems(invoice_details,item){
+            console.log("calling add invoice item")
+
+            const config = {	
+        		method: 'post',
+        		url: '/api/save-invoice-items',
+        		params:{ invoice_id: invoice_details.invoice_id, item: item.item, quantity: item.quantity, cost: item.cost, vat: item.vat }
+        		// headers: { 
+          //            'X-CSRFTOKEN': $('meta[name="csrf-token"]').attr('content'),
+          //            "Authorization": 'Bearer '+ $('meta[name="csrf-token"]').attr('content'),
+          //        }
+    		}
+
+            const res = await axios(config);
+   
+            return await res;
+    }
+
+
+    // Confirm Invoice Save
+    async confirmSaveInvoice(invoice_details, status){
+            console.log("calling confirm invoice save")
+
+            const config = {	
+        		method: 'post',
+        		url: '/api/confirm-invoice-save',
+        		params:{ invoice_id: invoice_details.invoice_id, status: status }
+        		// headers: { 
+          //            'X-CSRFTOKEN': $('meta[name="csrf-token"]').attr('content'),
+          //            "Authorization": 'Bearer '+ $('meta[name="csrf-token"]').attr('content'),
+          //        }
+    		}
+
+            const res = await axios(config);
+   
+            return await res;
+    }
 }
 
 export default Api

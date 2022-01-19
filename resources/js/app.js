@@ -21,3 +21,7 @@ require('./components/Customers');
 require('./components/CountDown');
 
 require('./components/CustomerProjects');
+
+require('./components/CreateInvoice');
+
+require('./components/Invoices');

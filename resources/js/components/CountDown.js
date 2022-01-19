@@ -23,7 +23,7 @@ function CountDown(props) {
         let dateDiff =  date - nowDate;
 
         if(nowDate>date){
-            console.log("Don't bother")
+            // console.log("Don't bother")
             const hours = "00";
             const minutes = "00";
             const seconds = "00";
@@ -32,14 +32,14 @@ function CountDown(props) {
             setMin(minutes);
             setSec(seconds);
         } else {
-            console.log("date is ");
-            console.log(date);
+            // console.log("date is ");
+            // console.log(date);
 
-            console.log("now date is ");
-            console.log(nowDate);
+            // console.log("now date is ");
+            // console.log(nowDate);
 
-            console.log("date diff is ");
-            console.log(dateDiff);
+            // console.log("date diff is ");
+            // console.log(dateDiff);
 
             calculateTime(dateDiff);
 
@@ -75,14 +75,14 @@ function CountDown(props) {
 
 
 
-        console.log("length of hours is ");
-        console.log(hours)
-        console.log("length of mins is ");
-        console.log(minutes)
-        console.log("length of seconds is ");
-        console.log(seconds)
+        // console.log("length of hours is ");
+        // console.log(hours)
+        // console.log("length of mins is ");
+        // console.log(minutes)
+        // console.log("length of seconds is ");
+        // console.log(seconds)
 
-        console.log(seconds.toString().length);
+        // console.log(seconds.toString().length);
 
         seconds.toString().length==1 ? seconds = "0"+seconds.toString() : ""
         minutes.toString().length==1 ? minutes = "0"+minutes.toString() : ""
