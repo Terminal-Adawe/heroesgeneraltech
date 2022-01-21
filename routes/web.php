@@ -87,7 +87,7 @@ Route::get('/admin/create-invoice', [App\Http\Controllers\ManageOperationsContro
 
 Route::post('/admin/add-invoice', [App\Http\Controllers\ManageOperationsController::class, 'add_invoice'])->name('add-invoice')->middleware('auth');
 
-Route::get('/admin/view-invoice', [App\Http\Controllers\ManageOperationsController::class, 'view_invoice'])->name('view-invoice')->middleware('auth');
+Route::get('/admin/view-invoices', [App\Http\Controllers\ManageOperationsController::class, 'view_invoices'])->name('view-invoices')->middleware('auth');
 
 Route::get('/admin/view-projects', [App\Http\Controllers\ManageOperationsController::class, 'view_projects'])->name('view-projects')->middleware('auth');
 
@@ -97,6 +97,8 @@ Route::get('/admin/manage-staff', function () {
 })->name('manage-staff')->middleware('auth');
 
 Route::get('/admin/view-staff', [App\Http\Controllers\AdminRegisterController::class, 'view_staff'])->name('view-staff')->middleware('auth');
+
+Route::get('/admin/view-staff/{id}', [App\Http\Controllers\AdminRegisterController::class, 'view_staff_user'])->name('view-staff-user')->middleware('auth');
 
 Route::get('/admin/overview', [App\Http\Controllers\ManageOperationsController::class, 'overview'])->name('overview')->middleware('auth');
 

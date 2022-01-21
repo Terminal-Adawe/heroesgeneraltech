@@ -1,33 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import API from './APIController';
+import { Link } from 'react-router-dom'
 
 
-function Invoices() {
+function Invoices(props) {
 
     const [invoices, setInvoices] = useState(0);
     const [invoiceItems, setInvoiceItems] = useState(0);
+    const [companyDetails, setCompanyDetails] = useState(0);
+    const [customerProjects, setCustomerProjects] = useState(0);
     const [count, setCount] = useState(0);
 
-    useEffect(()=>{
-        function fetchInvoices(){
+    // useEffect(()=>{
+    //     function fetchInvoices(){
 
 
-            new API().fetchInvoices().then(response=>{
-                console.log("Response")
-                console.log(response.data)
+    //         new API().fetchInvoices().then(response=>{
+    //             console.log("Response")
+    //             console.log(response.data)
 
-                setInvoices(response.data.invoices);
-                setInvoiceItems(response.data.invoiceItems)
-            })
-        }
+    //             setInvoices(response.data.invoices);
+    //             setInvoiceItems(response.data.invoiceItems)
+    //             setCompanyDetails(response.data.company_information);
+    //             setCustomerProjects(response.data.customer_projects);
+    //         })
+    //     }
 
-        fetchInvoices();
-    },[count])
+    //     fetchInvoices();
+    // },[count])
 
     return (<div>
             {
-                invoices ? invoices.filter(invoice=>invoice.status=='4').map((invoice,i)=>{
+                props.invoices ? props.invoices.filter(invoice=>invoice.status=='4').map((invoice,i)=>{
                     const today = new Date(invoice.created_at);
                     var dd = String(today.getDate()).padStart(2, '0');
                     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -45,6 +50,7 @@ function Invoices() {
 
                               }
                             </div>
+                            <Link to="/admin/view-invoice" className="item-link" onClick={()=>props.updateStates(invoice.invoice_id,invoice.project_id)}></Link>
                     </div>
                 }) : ''
             }
@@ -53,7 +59,3 @@ function Invoices() {
 }
 
 export default Invoices;
-
-if (document.getElementById('invoices')) {
-    ReactDOM.render(<Invoices />, document.getElementById('invoices'));
-}

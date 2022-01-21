@@ -35,14 +35,31 @@ class AdminRegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
-        $user = User::create([
+        // $user = User::create([
+        //     'name' => $request->name,
+        //     'username' => $request->username,
+        //     'email' => $request->email,
+        //     'password' => Hash::make($request->password),
+        //     'role' => $request->role,
+        //     'is_staff' => $request->is_staff,
+        //     'dob' => $request->dob,
+        //     'location' => $request->location,
+        //     'position' => $request->position
+        // ]);
+
+        $data = [
             'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => $request->role,
             'is_staff' => $request->is_staff,
-        ]);
+            'dob' => $request->dob,
+            'location' => $request->location,
+            'position' => $request->position
+        ];
+
+        $user = User::insertGetId($data);
 
 
         return redirect()->back()->with('status','User added Successful !');
@@ -59,5 +76,15 @@ class AdminRegisterController extends Controller
                             ->get();
 
         return view('admin.view_staff')->with('data',$data);
+    }
+
+    public function view_staff_user(Request $request){
+        $user_id = $request->id;
+
+        $data['services_f'] = Service::where('active',1)->take(5)->get();
+
+        $data["user"] = User::where('id',$user_id)->first();
+
+        return view('admin.staff_details')->with('data',$data);
     }
 }

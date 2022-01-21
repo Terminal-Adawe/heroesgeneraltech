@@ -36,6 +36,8 @@ Route::middleware('auth:sanctum')->get('/get-invoice-details', [App\Http\Control
 
 Route::middleware('auth:sanctum')->get('/get-invoices', [App\Http\Controllers\ManageOperationsController::class, 'get_invoices'])->name('get-invoices');
 
+Route::middleware('auth:sanctum')->get('/get-invoice', [App\Http\Controllers\ManageOperationsController::class, 'get_invoice'])->name('get-invoice');
+
 Route::middleware('auth:sanctum')->post('/add-invoice-details', [App\Http\Controllers\ManageOperationsController::class, 'add_invoice'])->name('add-invoice-details');
 
 Route::middleware('auth:sanctum')->post('/save-invoice-items', [App\Http\Controllers\ManageOperationsController::class, 'save_invoice_item'])->name('save-invoice-items');

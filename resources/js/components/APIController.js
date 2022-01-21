@@ -144,6 +144,25 @@ class Api {
             return await res;
     }
 
+    // Get Invoices
+    async fetchInvoice(invoice_id){
+            console.log("calling get invoice")
+
+            const config = {
+        		method: 'get',
+        		url: '/api/get-invoice',
+        		params:{ invoice_id: invoice_id }
+        		// headers: {
+          //            'X-CSRFTOKEN': $('meta[name="csrf-token"]').attr('content'),
+          //            "Authorization": 'Bearer '+ $('meta[name="csrf-token"]').attr('content'),
+          //        }
+    		}
+
+            const res = await axios(config);
+   
+            return await res;
+    }
+
     // Get Invoice Details
     async getInvoiceDetails(){
             console.log("calling get invoice details")
@@ -165,13 +184,13 @@ class Api {
 
 
     // Save Invoice Details
-    async saveInvoiceDetails(project_id){
+    async saveInvoiceDetails(projectName,customerName,customerAddress,customerNumber,discount,VAT){
             console.log("calling add invoice details")
 
             const config = {	
         		method: 'post',
         		url: '/api/add-invoice-details',
-        		params:{ project_id: project_id }
+        		params:{ projectName: projectName, customerName: customerName, customerAddress: customerAddress, customerNumber: customerNumber, discount: discount, VAT: VAT }
         		// headers: { 
           //            'X-CSRFTOKEN': $('meta[name="csrf-token"]').attr('content'),
           //            "Authorization": 'Bearer '+ $('meta[name="csrf-token"]').attr('content'),
@@ -187,10 +206,12 @@ class Api {
     async saveInvoiceItems(invoice_details,item){
             console.log("calling add invoice item")
 
+            item.VAT = 0;
+
             const config = {	
         		method: 'post',
         		url: '/api/save-invoice-items',
-        		params:{ invoice_id: invoice_details.invoice_id, item: item.item, quantity: item.quantity, cost: item.cost, vat: item.vat }
+        		params:{ invoice_id: invoice_details.invoice_id, item: item.item, quantity: item.quantity, cost: item.cost, vat: item.VAT }
         		// headers: { 
           //            'X-CSRFTOKEN': $('meta[name="csrf-token"]').attr('content'),
           //            "Authorization": 'Bearer '+ $('meta[name="csrf-token"]').attr('content'),

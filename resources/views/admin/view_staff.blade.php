@@ -19,6 +19,7 @@
                                         {{ $user->role_name }}
                                     </div>
                                 </div>
+                                <a href="{{ route('view-staff-user', $user->id) }}" class="item-link"></a>
                             </div>
                         </div>
                         @endforeach

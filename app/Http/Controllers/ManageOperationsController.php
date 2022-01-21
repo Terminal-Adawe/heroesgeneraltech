@@ -9,7 +9,7 @@ use App\Models\Customer_project;
 use App\Models\Invoice;
 use App\Models\InvoiceItem;
 use App\Models\CompanyInformation;
-
+use Illuminate\Support\Facades\Log;
 
 class ManageOperationsController extends Controller
 {
@@ -20,7 +20,7 @@ class ManageOperationsController extends Controller
         return view('admin.overview')->with('data',$data);
     }
 
-    public function view_invoice(Request $request){
+    public function view_invoices(Request $request){
         $data['services_f'] = Service::where('active',1)->take(5)->get();
 
         return view('admin.view_invoice')->with('data',$data);
@@ -42,12 +42,22 @@ class ManageOperationsController extends Controller
 
         $data['company_information'] = CompanyInformation::first();
 
-        $data['invoices'] = Invoice::all();
+        $data['invoices'] = Invoice::orderBy('created_at','desc')->get();
         $data['invoice_items'] = InvoiceItem::all();
 
         $data['customer_projects'] = Customer_project::join('services','services.service_id','customer_projects.service_id')
             // ->join('service_stages','service_stages.service_stage_id','customer_projects.stage')
                             ->get();
+
+        return $data;
+    }
+
+    public function get_invoice(Request $request){
+        $invoice_id = $request->invoice_id;
+
+        $data['invoice_items'] = InvoiceItem::where('invoice_id',$invoice_id)->get();
+
+        $data['invoice'] = Invoice::where('invoice_id',$invoice_id)->first();
 
         return $data;
     }
@@ -64,12 +74,26 @@ class ManageOperationsController extends Controller
     }
 
     public function add_invoice(Request $request){
-        $data['project_id'] = $request->project_id;
-        $data['reference_number'] = $data['project_id'];
+        $data['project_name'] = $request->projectName;
+        $data['customer_name'] = $request->customerName;
+        $data['customer_address'] = $request->customerAddress;
+        $data['customer_contact_number'] = $request->customerNumber;
+        $data['discount'] = $request->discount;
+        $data['VAT'] = $request->VAT;
 
-        $insert_data = ['project_id'=>$data['project_id'],'invoice_reference'=>$data['reference_number']];
+        $date = date('Ymd.His');
+
+        Log::debug("Date is ");
+        Log::debug($date);
+
+
+        $insert_data = ['project_name'=>$data['project_name'],'customer_name'=>$data['customer_name'],'customer_address'=>$data['customer_address'],'customer_contact_number'=>$data['customer_contact_number'],'discount'=>$data['discount'],'VAT'=>$data['VAT']];
 
         $data['invoice_id'] = Invoice::insertGetId($insert_data);
+
+        $data['invoice_reference'] = strval($date).".".strval($data['invoice_id']);
+
+        Invoice::where('invoice_id',$data['invoice_id'])->update(['invoice_reference'=>$data['invoice_reference']]);
 
 
         return $data;

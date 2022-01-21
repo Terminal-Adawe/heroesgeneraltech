@@ -28,6 +28,7 @@
         "webpack-dev-server": "^4.6.0"
     },
     "dependencies": {
+        "react-router-dom": "^6.2.1",
         "react-vis": "^1.11.7"
     }
 }

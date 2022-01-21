@@ -19,7 +19,7 @@
                 <a href="{{ route('create-invoice') }}">Create Invoice</a>
               </li>
               <li class="list-group-item">
-                <a href="{{ route('view-invoice') }}">View Invoices</a>
+                <a href="{{ route('view-invoices') }}">View Invoices</a>
               </li>
               <li class="list-group-item">
                 <a href="{{ route('view-projects') }}">View Projects</a>
