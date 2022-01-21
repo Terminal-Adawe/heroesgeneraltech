@@ -31,7 +31,7 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ route('manage-operations') }}">Manage Operations</a>
         </li>
-        @else
+        @elseif(Auth::check() && Auth::user()->role == "1")
         <li class="nav-item">
           <a class="nav-link" href="{{ route('customer') }}">Your Services</a>
         </li>
