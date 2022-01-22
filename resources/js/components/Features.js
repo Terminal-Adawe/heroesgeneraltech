@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import API from './APIController'
+import API from './APIController';
 
 
 function Features() {

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 use App\Models\Service_feature;
 use App\Models\Service;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Rules\MatchOldPassword;
 
 class AdminRegisterController extends Controller
 {
@@ -66,6 +69,26 @@ class AdminRegisterController extends Controller
 
     }
 
+    public function change_password(Request $request){
+
+        $request->validate([
+
+            'current_password' => ['required', new MatchOldPassword],
+
+            'new_password' => ['required'],
+
+            'new_confirm_password' => ['same:new_password'],
+
+        ]);
+
+        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+
+        $message = 'Password changed';
+
+        return redirect('/admin/profile')->with('message',$message);
+
+    }
+
     public function view_staff(Request $request){
         $data['services_f'] = Service::where('active',1)->take(5)->get();
 
@@ -86,5 +109,23 @@ class AdminRegisterController extends Controller
         $data["user"] = User::where('id',$user_id)->first();
 
         return view('admin.staff_details')->with('data',$data);
+    }
+
+    public function profile(Request $request){
+
+        $data['services_f'] = Service::where('active',1)->take(5)->get();
+
+        $data["user"] = User::where('id',Auth::user()->id)->first();
+
+        return view('admin.profile_page')->with('data',$data);
+    }
+
+    public function edit_profile(Request $request){
+
+        $data['services_f'] = Service::where('active',1)->take(5)->get();
+
+        $data["user"] = User::where('id',Auth::user()->id)->first();
+
+        return view('admin.edit_profile')->with('data',$data);
     }
 }

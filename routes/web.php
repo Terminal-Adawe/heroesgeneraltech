@@ -83,6 +83,13 @@ Route::post('/register-staff', [App\Http\Controllers\AdminRegisterController::cl
 
 Route::get('/admin/add-staff', [App\Http\Controllers\AdminRegisterController::class, 'create'])->name('add-staff')->middleware('auth');
 
+Route::post('/admin/change-password', [App\Http\Controllers\AdminRegisterController::class, 'change_password'])->name('change-password')->middleware('auth');
+
+Route::get('/admin/profile', [App\Http\Controllers\AdminRegisterController::class, 'profile'])->name('profile')->middleware('auth');
+
+Route::get('/admin/edit-profile', [App\Http\Controllers\AdminRegisterController::class, 'edit_profile'])->name('edit-profile')->middleware('auth');
+
+
 Route::get('/admin/create-invoice', [App\Http\Controllers\ManageOperationsController::class, 'create_invoice'])->name('create-invoice')->middleware('auth');
 
 Route::post('/admin/add-invoice', [App\Http\Controllers\ManageOperationsController::class, 'add_invoice'])->name('add-invoice')->middleware('auth');

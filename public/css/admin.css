@@ -82,6 +82,10 @@ footer{
 	color: white;
 }
 
+.black-link, .black-link:hover, .black-link:active{
+	color: black;
+}
+
 .back-div{
 	width: 100%;
 	background-color: #f2f3f4;

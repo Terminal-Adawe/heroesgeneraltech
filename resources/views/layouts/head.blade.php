@@ -159,5 +159,63 @@ div,span,h1,h2,h3,h4,h5,h6,p,blockquote,a,ol,ul,li,figcaption,textarea,input{fon
     </footer>
 
 
+<!-- Change password Modal -->
+<div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form method="POST" action="{{ route('change-password') }}">
+                        @csrf
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row mb-3">
+              <label for="current-password" class="col-md-4 col-form-label text-md-right">{{ __('Current Password') }}</label>
+
+              <div class="col-md-6">
+                <input id="current-password" type="password" class="form-control @error('old-password') is-invalid @enderror" name="current_password" required autocomplete="new-password">
+
+                    @error('password')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+                        @enderror
+              </div>
+        </div>
+        <div class="row mb-3">
+              <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+              <div class="col-md-6">
+                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="new_password" required autocomplete="new-password">
+
+                    @error('password')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+                        @enderror
+              </div>
+        </div>
+
+            <div class="row mb-3">
+                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                <div class="col-md-6">
+                    <input id="password-confirm" type="password" class="form-control" name="new_confirm_password" required autocomplete="new-password">
+                </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
+
+
+
+
 </body>
 </html>

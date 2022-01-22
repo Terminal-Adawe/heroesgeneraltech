@@ -35,6 +35,10 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ route('customer') }}">Your Services</a>
         </li>
+        @else
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('admin') }}">Manage Customers</a>
+        </li>
         @endif
       </ul>
       <div class="d-flex">
@@ -55,7 +59,11 @@
             {{ Auth::user()->name }}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            @if(Auth::check() && Auth::user()->role=="1")
             <li><a class="dropdown-item" href="{{ url('/customer') }}">Profile</a></li>
+            @else
+            <li><a class="dropdown-item" href="{{ url('/admin/profile') }}">Profile</a></li>
+            @endif
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">Logout</a>
