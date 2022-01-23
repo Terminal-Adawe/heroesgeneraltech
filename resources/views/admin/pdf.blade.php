@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<div class="container">
+<div class="container-fluid">
 			<div class="row_ my-4">
                 <div class="column">
                     <div class="invoice-logo">
