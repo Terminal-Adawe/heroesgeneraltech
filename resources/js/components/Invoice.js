@@ -156,13 +156,13 @@ function Invoice(props){
                             <td><h2>₵{ (props.totalCost - (props.discount/100*props.totalCost)) - props.amountPaid_project }</h2></td>
                         </tr>
                         <tr>
-                            <td colSpan='6' style={{ textAlign: 'center' }}><i>6 Months Warranty</i></td>
+                            <td colSpan='5' style={{ textAlign: 'center' }}><i>6 Months Warranty</i></td>
                         </tr>
                         <tr>
-                            <td colSpan='6' style={{ textAlign: 'center' }}><b>WE ARE GLAD TO DO BUSINESS WITH YOU</b></td>
+                            <td colSpan='5' style={{ textAlign: 'center' }}><b>WE ARE GLAD TO DO BUSINESS WITH YOU</b></td>
                         </tr>
                         <tr>
-                            <td colSpan='6' style={{ textAlign: 'center' }}>
+                            <td colSpan='5' style={{ textAlign: 'center' }}>
                                 <div className='row mb-1'>
                                     <div className="col-6">
                                         <div className='row mb-1'>
@@ -200,7 +200,7 @@ function Invoice(props){
                                             <button className="btn btn-outline-secondary btn-sm my-4" type="button" onClick={ props.saveInvoice }>Save Invoice</button>
                                         : props.saved==1 ? <div className='row'><div className='col-6'><button className="btn btn-outline-secondary btn-sm my-4 mx-4" type="button" onClick={ ()=>props.editInvoice('edit') }>Edit Invoice</button></div><div className='col-6'><button className="btn btn-outline-secondary btn-sm my-4" type="button" onClick={ props.confirmSaveInvoice }>Confirm Save</button></div></div>
                                         : props.saved == 2 ? <button className="btn btn-outline-secondary btn-sm my-4" type="button" onClick={ ()=>props.editInvoice('save') }>Save Edit</button>
-                                        : props.saved == 4 ? <button className="btn btn-danger btn-sm my-4" type="button" >Print</button>
+                                        : props.saved == 4 ? <a className="btn btn-danger btn-sm my-4" href={`/invoice/pdf/${props.invoiceID ? props.invoiceID : ''}`} >Print</a>
                                         : ''
                                     }       
                                 </td>

@@ -114,4 +114,6 @@ Route::get('/admin/manage-operations', function () {
 })->name('manage-operations')->middleware('auth');
 
 
+Route::get('/invoice/pdf/{invoice_id}', [App\Http\Controllers\ManageOperationsController::class, 'createPDF']);
+
 

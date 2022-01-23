@@ -59,6 +59,10 @@ footer{
     transform: translate(-50%, -50%);
 }
 
+.invoice-title{
+	color: red;
+}
+
 .profileImage{
     position: absolute;
     border-radius: 50%;
@@ -162,6 +166,33 @@ footer{
 	padding-top: 50px;
 	text-align: center;
 	font-family: Optima;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+.column_s {
+	float: left;
+ 	width: 20%;
+}
+
+.column_ss {
+ 	float: left;
+ 	width: 15%;
+}
+
+.column_full{
+	float: left;
+  	width: 100%;
+}
+
+/* Clear floats after the columns */
+.row_:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 

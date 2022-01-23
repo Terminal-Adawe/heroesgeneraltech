@@ -10,6 +10,7 @@ use App\Models\Invoice;
 use App\Models\InvoiceItem;
 use App\Models\CompanyInformation;
 use Illuminate\Support\Facades\Log;
+use PDF;
 
 class ManageOperationsController extends Controller
 {
@@ -128,6 +129,43 @@ class ManageOperationsController extends Controller
         return $invoice_id;
 
 
+    }
+
+    public function createPDF(Request $request){
+        // retreive all records from db
+
+    $invoice_id = $request->invoice_id;
+
+    $data['invoice_items'] = InvoiceItem::where('invoice_id',$invoice_id)->get();
+
+    $subtotal = 0;
+    $total_cost = 0;
+
+    foreach($data['invoice_items'] as $item){
+        $subtotal = (int)$item->cost + $subtotal;
+        $total_cost = $total_cost + (((int)$item->VAT+(int)$item->cost)*(int)$item->quantity);
+    }
+
+    $data['subtotal'] = $subtotal;
+    $data['totalcost'] = $total_cost;
+
+    $data['invoice'] = Invoice::where('invoice_id',$invoice_id)->first();
+
+    $data['company_information'] = CompanyInformation::first();
+
+    // share data to view
+    $pdf = new PDF();
+
+    view()->share('data',$data);
+    $pdf = PDF::setPaper('A4', 'landscape')->loadView('admin.pdf', $data);
+
+    Log::debug("path is ");
+    Log::debug($_SERVER['DOCUMENT_ROOT']);
+
+    // PDF::setBasePath(realpath($_SERVER['DOCUMENT_ROOT']));
+
+      // download PDF file with download method
+      return $pdf->download('invoice.pdf');
     }
 }
 

@@ -42,6 +42,8 @@ function Invoices(props) {
                     return <div key={i} className="invoice-list shadow1">
                             <div className="d-flex mb-3">
                               <div className="me-auto p-2"><b className="text-muted">Invoice:</b> { invoice.invoice_reference }</div>
+                              <div className="p-2"><b>{ invoice.project_name }</b></div>
+                              <div className="p-2"><i>{ invoice.customer_name }</i></div>
                               <div className="p-2">{ date__ }</div>
                               {
                                 invoiceItems ? invoiceItems.filter(item=>item.invoice_id==invoice.invoice_id).map((item,r)=>{

@@ -23,7 +23,8 @@ class InvoiceNavigator extends React.Component{
 			totalCost: '',
 			amountPaid_project: 0,
 			selectedInvoice: [],
-			viewState: "all"
+			viewState: "all",
+			invoiceID: ""
 		}
 
 		this.updateStates = this.updateStates.bind(this)
@@ -53,8 +54,15 @@ class InvoiceNavigator extends React.Component{
             this.setState({
             	invoiceItems: response.data.invoice_items,
             	projectID: projectID,
-            	invoiceDetails: response.data.invoice
+            	invoiceDetails: response.data.invoice,
+            	invoiceID: invoiceID
             },()=>{
+            		const today = new Date(this.state.invoiceDetails.created_at);
+        			var dd = String(today.getDate()).padStart(2, '0');
+        			var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        			var yyyy = today.getFullYear();
+        			this.setState({date__:mm + '-' + dd + '-' + yyyy});
+
             		let subTotalCost_ = 0;
         			let totalCost_ = 0;
         			this.state.invoiceItems ? this.state.invoiceItems.map((item,i)=>{
@@ -137,6 +145,7 @@ class InvoiceNavigator extends React.Component{
                 referenceNumber={this.state.invoiceDetails ? this.state.invoiceDetails.invoice_reference : ''}
                 projectName={this.state.invoiceDetails ? this.state.invoiceDetails.project_name : ''}
                 VAT={this.state.invoiceDetails ? this.state.invoiceDetails.VAT : ''}
+                invoiceID={this.state.invoiceID}
             />}/>
       	</Routes>
   </Router>
