@@ -13,6 +13,23 @@ function Invoice(props){
                     </div>
                 </div>
                 <div className="col-md-4">
+                	<div className="row">
+                        PROJECT
+                    </div>
+                    <div className="row">
+                        {
+                            (props.saved==0 || props.saved==2) ? 
+                            	
+                             <input type="text" className="form-control" onChange={(e)=>props.inputChange(e,"projectName")} />
+                            : <div className="mx-auto">
+                                        <span style={{ fontSize: '20px' }}>
+                                            {props.projectName}
+										</span>
+                                    </div> 
+
+
+                        }
+                    </div>
                 </div>
                 <div className="col-md-4">
                     <h2>Invoice</h2>
@@ -27,12 +44,6 @@ function Invoice(props){
                     { props.companyDetails ? props.companyDetails.contact_1 : '' }
                 </div>
                 <div className="col-md-4">
-                </div>
-                <div className="col-md-4">
-                	<p>{props.referenceNumber ? props.referenceNumber : ''}</p>
-                    <p>{ props.date__ ? props.date__ : '' }</p>
-                </div>
-                <div className="col-md-4 my-4">
                 	{
                 		props.saved==0 || props.saved==2 ? 
                 			<div className="row">
@@ -62,26 +73,9 @@ function Invoice(props){
                 			<></>
                 	}
                 </div>
-                <div className="col-md-4 my-4">
-                </div>
-                <div className="col-md-4 my-4">
-                    <div className="row">
-                        PROJECT
-                    </div>
-                    <div className="row">
-                        {
-                            (props.saved==0 || props.saved==2) ? 
-                            	
-                             <input type="text" className="form-control" onChange={(e)=>props.inputChange(e,"projectName")} />
-                            : <div className="mx-auto">
-                                        <span style={{ fontSize: '20px' }}>
-                                            {props.projectName}
-										</span>
-                                    </div> 
-
-
-                        }
-                    </div>
+                <div className="col-md-4">
+                	<p><b>Invoice ID:</b> {props.referenceNumber ? props.referenceNumber : ''}</p>
+                    <p><b>Date: </b>{ props.date__ ? props.date__ : '' }</p>
                 </div>
             </div>
             <div className="row mb-4">
@@ -108,19 +102,19 @@ function Invoice(props){
                             }) : <tr></tr>
                         }
                         <tr>
-                            <td colSpan='2'></td>
+                            <td colSpan='3'></td>
                             <td><b>SubTotal</b></td>
-                            <td>₵{ props.subTotalCost==0 || props.subTotalCost=="" ? '0.00' : props.subTotalCost }</td>
+                            { /*<td>₵{ props.subTotalCost==0 || props.subTotalCost=="" ? '0.00' : props.subTotalCost }</td> */}
                             <td className="table-info"><b>₵{ props.totalCost==0 || props.totalCost=="" ? '0.00' : props.totalCost }</b></td>
                         </tr>
                         <tr>
-                            <td colSpan='2'></td>
-                            <td colSpan='2'><b>Grand Total</b></td>
+                            <td colSpan='3'></td>
+                            <td><b>Grand Total</b></td>
                             <td className="table-light"><b>₵{ props.totalCost==0 || props.totalCost=="" ? '0.00' : props.totalCost }</b></td>
                         </tr>
                         <tr>
-                            <td colSpan='2'></td>
-                            <td colSpan='2'><b>Discount</b></td>
+                            <td></td>
+                            <td><b>Discount</b></td>
                             <td className="table-info">{ 
                             	props.saved==0 || props.saved==2 ?
                             	<input type="number" defaultValue='0' className="form-control" onChange={ (e)=>props.inputChange(e,"discount") } />
@@ -128,10 +122,12 @@ function Invoice(props){
                             	props.discount==0 || props.discount=="" ? 
                             	'0' : 
                             	props.discount+"%" }</td>
+                            <td><b>Discounted Total</b></td>
+                            <td className="table-info">₵{ props.totalCost - (props.discount/100*props.totalCost) }</td>
                         </tr>
                         <tr>
-                            <td colSpan='2'></td>
-                            <td colSpan='2'><b>VAT</b></td>
+                            <td colSpan='3'></td>
+                            <td><b>VAT</b></td>
                             <td className="table-light">₵ { 
                             	props.saved==0 || props.saved==2 ?
                             	<input defaultValue='0' type="number" className="form-control" onChange={ (e)=>props.inputChange(e,"VAT") } />
@@ -141,18 +137,13 @@ function Invoice(props){
                             	props.discount }</td>
                         </tr>
                         <tr>
-                            <td colSpan='2'></td>
-                            <td colSpan='2'><b>Initial Payment</b></td>
+                            <td colSpan='3'></td>
+                            <td><b>Initial Payment</b></td>
                             <td className="table-info"><b>₵{ props.amountPaid_project==0 || props.amountPaid_project=="" ? '0.00' : props.amountPaid_project }</b></td>
                         </tr>
                         <tr>
-                            <td colSpan='2'></td>
-                            <td colSpan='2'>Discounted Total</td>
-                            <td>₵{ props.totalCost - (props.discount/100*props.totalCost) }</td>
-                        </tr>
-                        <tr>
-                            <td colSpan='2'></td>
-                            <td colSpan='2'><h2>Amount due</h2></td>
+                            <td colSpan='3'></td>
+                            <td><h2>Amount due</h2></td>
                             <td><h2>₵{ (props.totalCost - (props.discount/100*props.totalCost)) - props.amountPaid_project }</h2></td>
                         </tr>
                         <tr>
